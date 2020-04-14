@@ -1,0 +1,84 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <title>Chat with MQTT</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/chat.css" />
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/mqtt.cool-web-client"></script>
+
+  <script src="js/app.js"></script>
+</head>
+
+<body>
+
+  <div class="container py-5 px-4">
+    <!-- For demo purpose-->
+    <!-- <header class="text-center">
+      <h1 class="display-4 text-white">Bootstrap Chat</h1>
+      <p class="text-white lead mb-0">An elegant chat widget compatible with Bootstrap 4</p>
+      <p class="text-white lead mb-4">Snippet by
+        <a href="https://bootstrapious.com" class="text-white">
+          <u>Bootstrapious</u></a>
+      </p>
+    </header> -->
+
+    <div class="row m-2" id="login">
+      <form id="loginForm" class="col-12 p-0">
+
+        <div class="row m-0">
+          <!-- <div class="col-6 row m-0 p-0">
+              <input type="text" class="col-8 form-control " id="brokerHost" placeholder="host" disabled required>
+              <input type="number" class="col-3 form-control ml-1" id="brokerPort" placeholder="TCP port" disabled required>
+            </div> -->
+          <div class="col-3"></div>
+          <div class="col-6 p-0 d-flex flex-row justify-content-end input-group text-center">
+            <input type="text" class="form-control" id="user" placeholder="Choose a nickname" disabled required />
+            <div class="input-group-append">
+              <button id="connectBtn" type="button" class="btn btn-primary" disabled>Connect</button>
+              <button id="disconnectBtn" type="button" class="btn btn-secondary" disabled>Disconnect</button>
+            </div>
+          </div>
+          <div class="col-3"></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="row rounded-lg overflow-hidden shadow" id="chat">
+      <!-- Users box-->
+      <div class="col-3 px-0">
+        <div class="bg-white">
+
+          <div class="bg-gray px-4 py-2 bg-light">
+            <p class="h5 mb-0 py-1">Connected Users</p>
+          </div>
+
+          <div class="messages-box">
+            <ul id="usersList" class="list-group rounded-0"></ul>
+          </div>
+        </div>
+      </div>
+      <!-- Chat Box-->
+      <div class="col-9 px-0">
+        <div id="messages" class="px-4 py-5 chat-box bg-white"></div>
+
+        <!-- Typing area -->
+        <div class="input-group">
+          <input type="text" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 bg-light" disabled id="sendMessage">
+          <div class="input-group-append">
+            <button id="replyBtn" disabled type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
