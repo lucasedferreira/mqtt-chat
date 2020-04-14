@@ -1,36 +1,5 @@
-/*
-  MQTT.Cool - https://mqtt.cool
-
-  MQTT Chat Demo
-
-  Copyright (c) Lightstreamer Srl
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-*/
-'use strict';
-
 const USERS_LIST_TOPIC_PREFIX = 'users';
 const USERS_LIST_TOPIC = USERS_LIST_TOPIC_PREFIX + '/#';
-const USERS_LIST_ICON = [
-  'https://cdn2.iconfinder.com/data/icons/font-awesome/1792/user-512.png',
-  'https://ptetutorials.com/images/user-profile.png',
-  'https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg',
-  'https://cdn2.iconfinder.com/data/icons/men-avatars/33/man_2-512.png',
-  'https://cdn.onlinewebfonts.com/svg/img_529937.png',
-  'https://icons-for-free.com/iconfiles/png/512/female+person+user+woman+young+icon-1320196266256009072.png',
-  'https://toppng.com/uploads/preview/circled-user-female-skin-type-4-icon-pro-icon-115534084504dcnr2bmdl.png',
-  'https://www.pinclipart.com/picdir/middle/165-1653686_female-user-icon-png-download-user-colorful-icon.png'
-];
 
 var CHAT_ROOM_TOPIC = 'chat';
 var MQTT_CLIENT;
@@ -358,10 +327,6 @@ function decodeUser(encodedUser) {
   const lastUsernameIndex = encodedUser.lastIndexOf('_');
   const username = encodedUser.substring(0, lastUsernameIndex);
   return { clientId: encodedUser, username: username };
-}
-
-function getRandomUserIcon() {
-  return USERS_LIST_ICON[Math.floor(Math.random() * USERS_LIST_ICON.length)]; 
 }
 
 function updateUsersList(decodedUser, isMe) {
